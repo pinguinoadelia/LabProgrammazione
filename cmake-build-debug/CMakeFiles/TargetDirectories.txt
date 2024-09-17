@@ -1,0 +1,3 @@
+/Users/michelino/Documents/LabProgrammazione/cmake-build-debug/CMakeFiles/LabProgrammazione.dir
+/Users/michelino/Documents/LabProgrammazione/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/michelino/Documents/LabProgrammazione/cmake-build-debug/CMakeFiles/rebuild_cache.dir
