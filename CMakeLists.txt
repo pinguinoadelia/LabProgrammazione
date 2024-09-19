@@ -8,4 +8,6 @@ add_executable(LabProgrammazione main.cpp
         Observer.h
         Subject.h
         ShoppingList.h
-        ShoppingList.cpp)
+        ShoppingList.cpp
+        User.h
+        User.cpp)
