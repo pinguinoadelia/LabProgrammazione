@@ -3,4 +3,6 @@ project(LabProgrammazione)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(LabProgrammazione main.cpp)
+add_executable(LabProgrammazione main.cpp
+        Item.h
+        Observer.h)

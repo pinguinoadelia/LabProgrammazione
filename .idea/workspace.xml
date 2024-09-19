@@ -21,10 +21,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8a05d5f9-fb94-4092-b4b2-c7b4edcc4fc4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Item.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Item.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Observer.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/build.ninja" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,6 +67,11 @@
   }
 }</component>
   <component name="RunManager">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="LabProgrammazione" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="LabProgrammazione" TARGET_NAME="LabProgrammazione" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LabProgrammazione" RUN_TARGET_NAME="LabProgrammazione">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -85,6 +90,7 @@
       <workItem from="1726753653472" duration="31000" />
       <workItem from="1726758239431" duration="79000" />
       <workItem from="1726758372886" duration="85000" />
+      <workItem from="1726762405784" duration="247000" />
     </task>
     <servers />
   </component>
