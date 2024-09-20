@@ -64,6 +64,10 @@ public:
     //distruttore della classe dichiarato come virtuale per poter gestire correttamente la memoria
     ~ShoppingList() override = default;
 
+    const std::map<std::string, std::shared_ptr<Item>>& getItems() const{
+        return items;
+    }
+
 private:
     std::list<Observer*> observers; //elenco degli osservatori registrati
     std::map<std::string, std::shared_ptr<Item>> items; //mappa che contiene gli articoli nella lista, indicizzati per nome

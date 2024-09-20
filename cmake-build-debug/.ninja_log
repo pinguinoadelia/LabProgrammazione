@@ -1,0 +1,10 @@
+# ninja log v6
+8	1899	1726843920784627928	CMakeFiles/LabProgrammazione.dir/ShoppingList.cpp.o	d13632630715d6c7
+8	1910	1726843920785413285	CMakeFiles/LabProgrammazione.dir/User.cpp.o	638db41e2b66153a
+6	2214	1726843920783010025	CMakeFiles/LabProgrammazione.dir/main.cpp.o	a8c62494911fa0b8
+1902	2283	1726843922678874181	CMakeFiles/LabProgrammazione.dir/Item.cpp.o	32328d39c640145d
+2283	2434	1726843923059899820	LabProgrammazione	8fed0523b33cfd1c
+15	2141	1726844994152204493	CMakeFiles/LabProgrammazione.dir/ShoppingList.cpp.o	d13632630715d6c7
+16	2158	1726844994153792666	CMakeFiles/LabProgrammazione.dir/User.cpp.o	638db41e2b66153a
+13	2473	1726844994150976694	CMakeFiles/LabProgrammazione.dir/main.cpp.o	a8c62494911fa0b8
+2473	2634	1726844996610475519	LabProgrammazione	8fed0523b33cfd1c

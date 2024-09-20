@@ -182,3 +182,4 @@ const std::shared_ptr<Item> ShoppingList::findItem(const std::string& name) cons
 const std::map<std::string, int>& ShoppingList::getItemCategories() const {
     return itemCategories;
 }
+
