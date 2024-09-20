@@ -6,14 +6,12 @@
 #define LABPROGRAMMAZIONE_OBSERVER_H
 
 #include <string>
-using namespace std;
-
 
 class Observer {
 public:
     virtual ~Observer() = default;
 
-    virtual void update(const string& listName) = 0;
+    virtual void onUpdate(const std::string& listName) = 0;
 };
 
 
