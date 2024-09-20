@@ -15,28 +15,26 @@
 #include <map>
 #include <memory>
 #include <algorithm>
-using namespace std;
 
 class User: public Observer{
 public:
     User();
-    User(const string& userName);
+    explicit User(const std::string& name);
     virtual ~User();
 
-    virtual void update(const string& listName) override;
+    virtual void onUpdate(const std::string& list) override;
 
-    void addShoppingList(ShoppingList& shoppingList);
-    void removeShoppingList(const string& name);
+    void addList(ShoppingList& list);
+    void removeList(const std::string& name);
 
-    const map<string, shared_ptr<ShoppingList>>& getMyLists() const;
+    const std::map<std::string, std::shared_ptr<ShoppingList>>& getLists() const;
 
-    const string &getUserName() const;
-
+    const std::string &getName() const;
 
 private:
-    string userName;
+    std::string name;
     // le liste sono le shoppingList (Subject), un User può avere più liste della spesa ovvero più Subject
-    map<string, shared_ptr<ShoppingList>> myLists;
+    std::map<std::string, std::shared_ptr<ShoppingList>> lists;
 };
 
 
