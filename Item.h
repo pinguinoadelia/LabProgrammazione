@@ -8,7 +8,6 @@
 #include <exception>
 #include <stdexcept>
 
-
 class Item {
 public:
     // Costruttore della classe Item
