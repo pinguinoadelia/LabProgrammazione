@@ -4,55 +4,55 @@
 
 #include "User.h"
 
-User::User() : userName("User") {}
+User::User() : name("User") {}
 
-User::User(const string& userName) : userName(userName) {}
+User::User(const std::string& name) : name(name) {}
 
 User::~User() {
-    for (auto& itr : myLists) {
-        itr.second->detach(this);
+    for (auto& itr :lists) {
+        itr.second->removeObserver(this);
     }
 }
 
-void User::update(const std::string& listName) {
-    auto itr = myLists.find(listName);
-    cout << "Lista '" << listName << "' aggiornata:" << endl;
-    cout << endl;
-    itr->second->printNotBought();
+void User::onUpdate(const std::string& list) {
+    auto itr = lists.find(list);
+    std::cout << "List '" << list << "' updated:" << std::endl;
+    std::cout << std::endl;
+    itr->second->printNotBoughtItems();
     //stampa dentro lista
 }
 
-void User::addShoppingList(ShoppingList& shoppingList) {
+void User::addList(ShoppingList& list) {
     // Creo un puntatore condiviso (shared_ptr) alla ShoppingList passata come argomento
-    shared_ptr<ShoppingList> shoppingListPtr = make_shared<ShoppingList>(shoppingList);
+    std::shared_ptr<ShoppingList> ptr = std::make_shared<ShoppingList>(list);
 
     // Inserisco la lista della spesa nella mappa myLists
-    myLists.insert(make_pair(shoppingList.getShoppingListName(), shoppingListPtr));
+    lists.insert(make_pair(list.getListName(), ptr));
 
     // Aggiungo l'utente come osservatore della lista della spesa
-    shoppingList.attach(this);
+    list.addObserver(this);
 }
 
-void User::removeShoppingList(const std::string& name) {
+void User::removeList(const std::string& name) {
     // Trovo la lista della spesa con il nome specificato nella mappa myLists
-    auto shoppingListItr = myLists.find(name);
+    auto shoppingListItr = lists.find(name);
 
-    if (shoppingListItr == myLists.end()) {
+    if (shoppingListItr == lists.end()) {
         // Se la lista della spesa non è stata trovata, lancio un'eccezione
         throw std::invalid_argument("Shopping list not found");
     } else {
         // Rimuovo l'utente dalla lista degli osservatori della lista della spesa
-        shoppingListItr->second->detach(this);
+        shoppingListItr->second->removeObserver(this);
 
         // Rimuovo la lista della spesa dalla mappa myLists
-        myLists.erase(shoppingListItr);
+        lists.erase(shoppingListItr);
     }
 }
 
-const map<string, shared_ptr<ShoppingList>>& User::getMyLists() const {
-    return myLists;
+const std::map<std::string, std::shared_ptr<ShoppingList>>& User::getLists() const {
+    return lists;
 }
 
-const string &User::getUserName() const {
-    return userName;
+const std::string &User::getName() const {
+    return name;
 }

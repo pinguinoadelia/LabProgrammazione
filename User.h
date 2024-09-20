@@ -20,9 +20,9 @@ class User: public Observer{
 public:
     User();
     explicit User(const std::string& name);
-    virtual ~User();
+    ~User() override;
 
-    virtual void onUpdate(const std::string& list) override;
+    void onUpdate(const std::string& list) override;
 
     void addList(ShoppingList& list);
     void removeList(const std::string& name);
