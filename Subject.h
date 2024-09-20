@@ -9,13 +9,13 @@
 
 class Subject {
 public:
-    virtual ~Subject()=default;
+    virtual ~Subject() = default;
 
-    virtual void attach(Observer* o)=0;
+    virtual void addObserver(Observer* observer) = 0;
 
-    virtual void detach(Observer* o)=0;
+    virtual void removeObserver(Observer* observer) = 0;
 
-    virtual void notify()=0;
+    virtual void notifyObservers() = 0;
 };
 
 
