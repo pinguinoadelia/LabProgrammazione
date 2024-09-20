@@ -46,7 +46,7 @@ public:
     const std::string& getListName() const;
 
     // Imposta il nome della lista della spesa
-    void setListName(const std::string& shoppingListName);
+    void setListName(const std::string& name);
 
     // Restituisce la mappa delle categorie degli oggetti
     const std::map<std::string, int>& getItemCategories() const;

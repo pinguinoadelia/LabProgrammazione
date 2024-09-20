@@ -51,7 +51,7 @@ public:
     }
 
     // Segna l'oggetto come non acquistato
-    void sell() {
+    void markAsNotPurchased() {
         isPurchased = false;
     }
 
