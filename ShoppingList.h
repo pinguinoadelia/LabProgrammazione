@@ -17,55 +17,52 @@
 #include <exception>
 #include <stdexcept>
 
-using namespace std;
-
 class ShoppingList: public Subject {
 public:
     // Costruttore della classe ShoppingList
-    ShoppingList(const string& shoppingListName) : shoppingListName(shoppingListName) {}
+    explicit ShoppingList(const std::string &name) : listName(name) {}
 
     // Metodi per l'implementazione dell'Observer pattern
-    void attach(Observer* o) override;
-    void detach(Observer* o) override;
-    void notify() override;
+    void addObserver(Observer* observer) override;
+    void removeObserver(Observer* observer) override;
+    void notifyObservers() override;
 
     // Aggiunge un oggetto alla lista della spesa
-    void addItem(const Item& item);
+    void insertItem(const Item& item);
 
     // Rimuove un oggetto dalla lista della spesa
-    void removeItem(const string& name);
+    void removeItem(const std::string& itemName);
 
     // Imposta uno stato di acquisto per un oggetto nella lista
-    void setBought(const string& name);
+    void markItemAsBought(const std::string& itemName);
 
     // Restituisce il numero di oggetti non acquistati nella lista
-    int getNotBoughtCount() const;
+    int markItemsAsNotBought() const;
 
     // Stampa gli oggetti non acquistati nella lista
-    void printNotBought() const;
+    void printNotBoughtItems() const;
 
     // Restituisce il nome della lista della spesa
-    const string& getShoppingListName() const;
+    const std::string& getListName() const;
 
     // Imposta il nome della lista della spesa
-    void setShoppingListName(const string& shoppingListName);
+    void setListName(const std::string& shoppingListName);
 
     // Restituisce la mappa delle categorie degli oggetti
-    const map<string, int>& getCategories() const;
+    const std::map<std::string, int>& getItemCategories() const;
 
-    int getShoppingListSize() const;
+    int getListSize() const;
 
-    const shared_ptr<Item> findItem(const string& name) const;
-
+    const std::shared_ptr<Item> findItem(const std::string& name) const;
 
     // Distruttore virtuale della classe ShoppingList
     virtual ~ShoppingList() = default;
 
 private:
-    list<Observer*> observers;                  // Lista degli osservatori
-    map<string, shared_ptr<Item>> shoppingList; // Mappa degli oggetti nella lista
-    map<string, int> categories;                // Mappa delle categorie degli oggetti
-    string shoppingListName;                    // Nome della lista della spesa
+    std::list<Observer*> observers;                  // Lista degli osservatori
+    std::map<std::string, std::shared_ptr<Item>> items; // Mappa degli oggetti nella lista
+    std::map<std::string, int> itemCategories;                // Mappa delle categorie degli oggetti
+    std::string listName;                    // Nome della lista della spesa
 };
 
 
