@@ -5,69 +5,67 @@
 #ifndef LABPROGRAMMAZIONE_ITEM_H
 #define LABPROGRAMMAZIONE_ITEM_H
 
-#include <string>
 #include <exception>
 #include <stdexcept>
 
-using namespace std;
 
 class Item {
 public:
     // Costruttore della classe Item
-    Item(string s, string c, int q = 1) : itemName(move(s)), itemCategory(move(c)) {
+    Item(std::string name, string type, int count = 1) : name(std::move(name)), category(std::move(type)) {
         // Controllo se la quantità è positiva o zero, altrimenti lancio un'eccezione
-        if (q >= 0)
-            itemQta = q;
+        if (count >= 0)
+            quantity = count;
         else
-            throw std::out_of_range("La quantità dell'oggetto non è positiva");
+            throw std::out_of_range("The Item quantity is not positive");
 
         // Imposto lo stato dell'oggetto come non acquistato
-        isBought = false;
+        isPurchased = false;
     }
 
     // Restituisce il nome dell'oggetto
-    const string& getItemName() const {
-        return itemName;
+    const std::string& getName() const {
+        return name;
     }
 
     // Restituisce la categoria dell'oggetto
-    const string& getItemCategory() const {
-        return itemCategory;
+    const std::string& getCategory() const {
+        return category;
     }
 
     // Restituisce la quantità dell'oggetto
-    int getItemQta() const {
-        return itemQta;
+    int getQuantity() const {
+        return quantity;
     }
 
     // Imposta la quantità dell'oggetto
-    void setItemQta(int itemQta) {
-        if (itemQta >= 0)
-            Item::itemQta = itemQta;
+    void setQuantity(int count) {
+        if (count >= 0)
+            Item::quantity = count;
         else
-            throw std::out_of_range("La quantità dell'oggetto non è positiva");
+            throw std::out_of_range("The item quantity is not positive");
     }
 
     // Segna l'oggetto come acquistato
-    void buy() {
-        isBought = true;
+    void markAsPurchased() {
+        isPurchased = true;
     }
 
     // Segna l'oggetto come non acquistato
     void sell() {
-        isBought = false;
+        isPurchased = false;
     }
 
     // Restituisce lo stato dell'acquisto dell'oggetto
-    bool isBoughtStatus() const {
-        return isBought;
+    bool isPurchasedStatus() const {
+        return isPurchased;
     }
 
 private:
-    string itemName;        // Nome dell'oggetto
-    string itemCategory;    // Categoria dell'oggetto
-    int itemQta;            // Quantità dell'oggetto
-    bool isBought;          // Stato dell'acquisto dell'oggetto
+    std::string name;        // Nome dell'oggetto
+    std::string category;    // Categoria dell'oggetto
+    int quantity;            // Quantità dell'oggetto
+    bool isPurchased;          // Stato dell'acquisto dell'oggetto
 };
 
 
