@@ -67,6 +67,12 @@ build CMakeFiles/LabProgrammazione.dir/User.cpp.o: CXX_COMPILER__LabProgrammazio
   OBJECT_DIR = CMakeFiles/LabProgrammazione.dir
   OBJECT_FILE_DIR = CMakeFiles/LabProgrammazione.dir
 
+build CMakeFiles/LabProgrammazione.dir/Item.cpp.o: CXX_COMPILER__LabProgrammazione_unscanned_Debug /Users/michelino/Documents/LabProgrammazione/Item.cpp || cmake_object_order_depends_target_LabProgrammazione
+  DEP_FILE = CMakeFiles/LabProgrammazione.dir/Item.cpp.o.d
+  FLAGS = -g -std=gnu++17 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk -mmacosx-version-min=11.6 -fcolor-diagnostics
+  OBJECT_DIR = CMakeFiles/LabProgrammazione.dir
+  OBJECT_FILE_DIR = CMakeFiles/LabProgrammazione.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target LabProgrammazione
@@ -75,7 +81,7 @@ build CMakeFiles/LabProgrammazione.dir/User.cpp.o: CXX_COMPILER__LabProgrammazio
 #############################################
 # Link the executable LabProgrammazione
 
-build LabProgrammazione: CXX_EXECUTABLE_LINKER__LabProgrammazione_Debug CMakeFiles/LabProgrammazione.dir/main.cpp.o CMakeFiles/LabProgrammazione.dir/ShoppingList.cpp.o CMakeFiles/LabProgrammazione.dir/User.cpp.o
+build LabProgrammazione: CXX_EXECUTABLE_LINKER__LabProgrammazione_Debug CMakeFiles/LabProgrammazione.dir/main.cpp.o CMakeFiles/LabProgrammazione.dir/ShoppingList.cpp.o CMakeFiles/LabProgrammazione.dir/User.cpp.o CMakeFiles/LabProgrammazione.dir/Item.cpp.o
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk -mmacosx-version-min=11.6
   OBJECT_DIR = CMakeFiles/LabProgrammazione.dir
   POST_BUILD = :

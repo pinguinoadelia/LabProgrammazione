@@ -51,7 +51,8 @@
 			[
 				0,
 				5,
-				7
+				7,
+				8
 			]
 		}
 	],
@@ -86,7 +87,8 @@
 			[
 				0,
 				5,
-				7
+				7,
+				8
 			]
 		},
 		{
@@ -144,6 +146,12 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "User.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "Item.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],

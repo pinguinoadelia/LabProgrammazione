@@ -10,4 +10,5 @@ add_executable(LabProgrammazione main.cpp
         ShoppingList.h
         ShoppingList.cpp
         User.h
-        User.cpp)
+        User.cpp
+        Item.cpp)
