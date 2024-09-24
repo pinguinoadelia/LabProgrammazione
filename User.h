@@ -1,6 +1,3 @@
-//
-// Created by Michelino De Laurentiis on 19/09/24.
-//
 
 #ifndef LABPROGRAMMAZIONE_USER_H
 #define LABPROGRAMMAZIONE_USER_H
@@ -41,6 +38,16 @@ public:
 
     // Restituisce il nome dell'utente
     const std::string &getName() const;
+
+    int getNumLists();
+
+    void setName(const std::string &name);
+
+    void addItem(const std::string &ln, const Item &item);
+
+    void removeItem(const std::string &ln, const Item &item);
+
+    int getRemainedItems(const std::string &ln);
 
 private:
     std::string name; // Nome dell'utente

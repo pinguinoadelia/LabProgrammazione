@@ -1,6 +1,3 @@
-//
-// Created by Michelino De Laurentiis on 19/09/24.
-//
 
 #ifndef LABPROGRAMMAZIONE_SHOPPINGLIST_H
 #define LABPROGRAMMAZIONE_SHOPPINGLIST_H

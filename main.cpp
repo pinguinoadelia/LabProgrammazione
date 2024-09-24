@@ -1,14 +1,13 @@
 #include <iostream>
 #include <string>
 #include <stdexcept>
-#include "Subject.h"
 #include "ShoppingList.h"
 #include "User.h"
 #include "Item.h"
-#include "Observer.h"
 
 // Funzione per stampare una ShoppingList
 void printItems(const ShoppingList& sl) {
+
     std::cout << "Nome della lista della spesa: " << sl.getListName() << std::endl << std::endl;
 
     // Itera attraverso le categorie di articoli
@@ -378,5 +377,7 @@ int main() {
 
     //------------------------------------------------------------------------------------------------------------------
 
-    return 0;
+     return 0;
+
+
 }

@@ -1,6 +1,3 @@
-//
-// Created by Michelino De Laurentiis on 19/09/24.
-//
 
 #include "User.h"
 
@@ -62,4 +59,33 @@ const std::map<std::string, std::shared_ptr<ShoppingList>>& User::getLists() con
 // Restituisce il nome dell'utente
 const std::string &User::getName() const {
     return name;
+}
+
+int User::getNumLists() {
+    return lists.size();
+}
+
+void User::setName(const std::string &name) {
+    User::name = name;
+}
+
+void User::addItem(const std::string &ln, const Item &item) {
+    auto it = lists.find(ln);  // Cerca nella mappa usando 'ln (listName)' come chiave
+    if (it != lists.end() && it->second) {  // Verifica se la lista esiste e il puntatore non è nullo
+        it->second->insertItem(item);  // Accedi alla lista tramite il puntatore condiviso e inserisci l'articolo
+        it->second->notifyObservers();  // Notifica l'aggiornamento
+    }
+}
+
+void User::removeItem(const std::string &ln, const Item &item) {
+    auto it = lists.find(ln);  // Cerca nella mappa usando 'ln (listName)' come chiave
+    if (it != lists.end() && it->second) {  // Verifica se la lista esiste e il puntatore non è nullo
+        it->second->removeItem(item.getName());  // Accedi alla lista tramite il puntatore condiviso e inserisci l'articolo
+        it->second->notifyObservers();  // Notifica l'aggiornamento
+    }
+}
+
+int User::getRemainedItems(const std::string &ln) {
+    auto it = lists.find(ln);
+    return (it != lists.end()) ? it->second->markItemsAsNotBought() : 0;
 }

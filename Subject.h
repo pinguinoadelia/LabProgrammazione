@@ -1,6 +1,3 @@
-//
-// Created by Michelino De Laurentiis on 19/09/24.
-//
 
 #ifndef LABPROGRAMMAZIONE_SUBJECT_H
 #define LABPROGRAMMAZIONE_SUBJECT_H

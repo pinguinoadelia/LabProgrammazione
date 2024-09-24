@@ -1,6 +1,3 @@
-//
-// Created by Michelino De Laurentiis on 19/09/24.
-//
 
 #ifndef LABPROGRAMMAZIONE_ITEM_H
 #define LABPROGRAMMAZIONE_ITEM_H
@@ -27,10 +24,16 @@ public:
     const std::string& getName() const {
         return name;
     }
+    void setName(std::string name){
+        Item::name = name;
+    }
 
     // Restituisce la categoria dell'articolo
     const std::string& getCategory() const {
         return category;
+    }
+    void setCategory(std::string category){
+        Item::category = category;
     }
 
     // Restituisce la quantità corrente dell'articolo
@@ -59,6 +62,10 @@ public:
     // Verifica se l'articolo sia stato acquistato o meno
     bool isPurchasedStatus() const {
         return isPurchased;
+    }
+
+    const std::string to_string() const {
+        return name + " (" + category + ") qnt. " + std::to_string(quantity) + " [" + ((isPurchased) ? "comprato" : "da comprare") + "]";
     }
 
 private:
