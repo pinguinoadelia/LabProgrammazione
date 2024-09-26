@@ -82,9 +82,9 @@ void ShoppingList::markItemAsBought(const std::string& itemName) {
         // Se l'oggetto è acquistato, lo segna come non acquistato e viceversa
         bool isBought = itr->second->isPurchasedStatus();
         if (isBought) {
-            itr->second->markAsNotPurchased();
+            itr->second->markItem(false);
         } else {
-            itr->second->markAsPurchased();
+            itr->second->markItem(true);
         }
         notifyObservers();
     } else {
@@ -108,7 +108,7 @@ int ShoppingList::markItemsAsNotBought() const {
 void ShoppingList::printNotBoughtItems() const {
     // Conteggio totale degli articoli non acquistati
     int total = 0;
-    std::cout << "Oggetti non acquistati in " << listName << ":" << std::endl;
+    std::string strOut = "Oggetti non acquistati in " + listName + ":\n";
 
     // Itera attraverso le categorie di articoli nella mappa itemCategories
     for (const auto& itr : itemCategories) {
@@ -129,12 +129,12 @@ void ShoppingList::printNotBoughtItems() const {
                 if (item.second->getCategory() == category && !item.second->isPurchasedStatus()) {
                     // Stampa il nome della categoria solo alla prima iterazione
                     if (first) {
-                        std::cout << "Categoria: " << category << std::endl;
+                        strOut += "Categoria: " + category +"\n";
                         first = false;
                     }
 
                     // Stampa il nome e la quantità dell'articolo non acquistato
-                    std::cout << "- " << item.first << " (" << item.second->getQuantity() << ")" << std::endl;
+                    strOut += "- " + item.first + " (" + std::to_string(item.second->getQuantity()) + ")" "\n";
                     categoryNotBought += item.second->getQuantity();
                 }
             }
@@ -144,9 +144,85 @@ void ShoppingList::printNotBoughtItems() const {
         total += categoryNotBought;
     }
 
-    // Stampa del numero totale di articoli non acquistati nella lista
-    std::cout << "Numero totale di articoli non acquistati: " << total << std::endl;
-    std::cout << std::endl;
+    if(total>0) {
+        std::cout << strOut;
+        // Stampa del numero totale di articoli non acquistati nella lista
+        std::cout << "Numero totale di articoli non acquistati: " << total << std::endl;
+        std::cout << std::endl;
+    }
+}
+
+// Restituisce gli articoli non acquistati nella lista della spesa
+std::map<std::string, std::shared_ptr<Item>> ShoppingList::notBoughtItems() const {
+    std::map<std::string, std::shared_ptr<Item>> retItems;
+
+    // Conteggio totale degli articoli non acquistati
+    int total = 0;
+
+    // Itera attraverso le categorie di articoli nella mappa itemCategories
+    for (const auto& itr : itemCategories) {
+
+        // Nome della categoria corrente
+        const std::string& category = itr.first;
+
+        // Numero di oggetti non acquistati nella categoria
+        int categoryNotBought = 0;
+
+        // Verifica se ci sono articoli nella categoria corrente
+        if (itr.second != 0) {
+            // Itera attraverso gli articoli nella lista della spesa
+            for (const auto& item : items) {
+                // Se l'articolo appartiene alla categoria e non è acquistato
+                if (item.second->getCategory() == category && !item.second->isPurchasedStatus()) {
+                    // Crea il nuovo oggetto e lo inserisce nella lista di ritorno
+                    Item item2(item.second->getName(), item.second->getCategory(), item.second->getQuantity(), item.second->isPurchasedStatus());
+                    auto ptr = std::make_shared<Item>(item2);
+                    retItems.insert(std::make_pair(item2.getName(), ptr));
+                    categoryNotBought += item.second->getQuantity();
+                }
+            }
+        }
+
+        // Aggiorna il conteggio totale degli articoli non acquistati
+        total += categoryNotBought;
+    }
+
+    return retItems;
+}
+
+// Restituisce tutti gli articoli di una categoria nella lista
+std::map<std::string, std::shared_ptr<Item>> ShoppingList::getItemsByCategory(const std::string &category) const {
+    std::map<std::string, std::shared_ptr<Item>> retItems;
+
+    // Conteggio totale degli articoli non acquistati
+    int total = 0;
+
+    // Itera attraverso le categorie di articoli nella mappa itemCategories
+    for (const auto& itr : itemCategories) {
+
+        // Numero di oggetti non acquistati nella categoria
+        int categoryNotBought = 0;
+
+        // Verifica se ci sono articoli nella categoria corrente
+        if (itr.second != 0) {
+            // Itera attraverso gli articoli nella lista della spesa
+            for (const auto& item : items) {
+                // Se l'articolo appartiene alla categoria
+                if (item.second->getCategory() == category) {
+                    // Crea il nuovo oggetto e lo inserisce nella lista di ritorno
+                    Item item2(item.second->getName(), item.second->getCategory(), item.second->getQuantity(), item.second->isPurchasedStatus());
+                    auto ptr = std::make_shared<Item>(item2);
+                    retItems.insert(std::make_pair(item2.getName(), ptr));
+                    categoryNotBought += item.second->getQuantity();
+                }
+            }
+        }
+
+        // Aggiorna il conteggio totale degli articoli non acquistati
+        total += categoryNotBought;
+    }
+
+    return retItems;
 }
 
 // Restituisce il nome della lista della spesa

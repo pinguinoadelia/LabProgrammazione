@@ -9,6 +9,7 @@ protected:
     User* utente = new User("Cbum");
     ShoppingList lista = ShoppingList("Lunedì");
     Item articolo = Item("Pollo", "Carne", 5);
+    Item articolo2 = Item("Manzo", "Carne", 3);
     bool control = false;
 
     void onUpdate(const std::string& listName) override {
@@ -17,6 +18,7 @@ protected:
 
     virtual void SetUp(){
         lista.insertItem(articolo);
+        lista.insertItem(articolo2);
         lista.addObserver(this);
     }
 

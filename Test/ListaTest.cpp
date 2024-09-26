@@ -30,12 +30,13 @@ TEST_F(ShoppingListSuite, InOut) {
     lista.markItemAsBought(a2.getName());
     ASSERT_EQ(7, lista.markItemsAsNotBought());
     lista.removeItem(a1.getName());
-    ASSERT_EQ(5, lista.markItemsAsNotBought());
+    ASSERT_EQ(1, lista.notBoughtItems().size());
 }
 
-TEST_F(ShoppingListSuite, ricerca){
+TEST_F(ShoppingListSuite, Ricerca){
     Item a5 = Item("Pollo", "Carne", 2);
     Item a6 = Item("Pera", "Frutta", 3);
     ASSERT_FALSE(lista.findItem(a5.getName()));
     ASSERT_TRUE(lista.findItem(a6.getName()));
+    ASSERT_EQ(2, lista.getItemsByCategory("Frutta").size());
 }

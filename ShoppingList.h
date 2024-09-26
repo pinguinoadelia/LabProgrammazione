@@ -43,6 +43,12 @@ public:
     //stampa gli articoli non acquistati nella lista
     void printNotBoughtItems() const;
 
+    //stampa gli articoli non acquistati nella lista
+    std::map<std::string, std::shared_ptr<Item>> notBoughtItems() const;
+
+    // Restituisce tutti gli articoli di una categoria nella lista
+    std::map<std::string, std::shared_ptr<Item>> getItemsByCategory(const std::string &category) const;
+
     //restituisce il nome della lista della spesa
     const std::string& getListName() const;
 

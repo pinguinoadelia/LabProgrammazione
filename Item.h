@@ -20,6 +20,8 @@ public:
         isPurchased = false;
     }
 
+    Item(std::string name, std::string type, int count, bool isPurchased) : name(std::move(name)), category(std::move(type)), quantity(count), isPurchased(isPurchased) {}
+
     // Restituisce il nome dell'articolo
     const std::string& getName() const {
         return name;
@@ -49,14 +51,9 @@ public:
             throw std::out_of_range("The item quantity is not positive");
     }
 
-    // Imposta lo stato dell'articolo come acquistato
-    void markAsPurchased() {
-        isPurchased = true;
-    }
-
-    // Imposta lo stato dell'articolo come non acquistato
-    void markAsNotPurchased() {
-        isPurchased = false;
+    // Imposta lo stato dell'articolo
+    void markItem(bool value) {
+        isPurchased = value;
     }
 
     // Verifica se l'articolo sia stato acquistato o meno

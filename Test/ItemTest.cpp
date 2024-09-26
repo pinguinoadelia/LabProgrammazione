@@ -18,7 +18,7 @@ TEST_F(ItemSuite, Setter) {
     item.setName("Cavolo");
     item.setCategory("Verdura");
     item.setQuantity(4);
-    item.markAsPurchased();
+    item.markItem(true);
     ASSERT_EQ("Cavolo", item.getName());
     ASSERT_EQ("Verdura", item.getCategory());
     ASSERT_EQ(4, item.getQuantity());

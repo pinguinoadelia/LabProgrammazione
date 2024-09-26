@@ -17,7 +17,7 @@ void User::onUpdate(const std::string& list) {
     auto itr = lists.find(list);
 
     // Stampa un messaggio per indicare l'aggiornamento della lista
-    std::cout << "List '" << list << "' updated:" << std::endl;
+    std::cout << "List '" << list << "' updated" << std::endl;
     std::cout << std::endl;
 
     // Stampa gli oggetti non acquistati nella lista aggiornata
