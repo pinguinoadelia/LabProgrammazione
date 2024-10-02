@@ -39,14 +39,19 @@ public:
     // Restituisce il nome dell'utente
     const std::string &getName() const;
 
+    // Restituisce il numero delle liste
     int getNumLists();
 
+    // Imposta il nome dell'utente
     void setName(const std::string &name);
 
+    // Aggiunge un articolo alla lista associata all'utente
     void addItem(const std::string &ln, const Item &item);
 
+    // Rimuove un articolo dalla lista associata all'utente
     void removeItem(const std::string &ln, const Item &item);
 
+    // Restituisce il numero degli articoli ancora da comprare
     int getRemainedItems(const std::string &ln);
 
 private:
