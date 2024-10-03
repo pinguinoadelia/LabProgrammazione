@@ -38,7 +38,7 @@ public:
     void markItemAsBought(const std::string& itemName);
 
     //restituisce il numero di articoli non ancora acquistati nella lista
-    int markItemsAsNotBought() const;
+    int notBoughtLenght() const;
 
     //stampa gli articoli non acquistati nella lista
     void printNotBoughtItems() const;
@@ -47,7 +47,7 @@ public:
     std::map<std::string, std::shared_ptr<Item>> notBoughtItems() const;
 
     // Restituisce tutti gli articoli di una categoria nella lista data la categoria
-    std::map<std::string, std::shared_ptr<Item>> getItemsByCategory(const std::string &category) const;
+    std::list<Item> getItemsByCategory(const std::string &category) const;
 
     //restituisce il nome della lista della spesa
     const std::string& getListName() const;

@@ -87,5 +87,5 @@ void User::removeItem(const std::string &ln, const Item &item) {
 
 int User::getRemainedItems(const std::string &ln) {
     auto it = lists.find(ln);
-    return (it != lists.end()) ? it->second->markItemsAsNotBought() : 0;
+    return (it != lists.end()) ? it->second->notBoughtLenght() : 0;
 }

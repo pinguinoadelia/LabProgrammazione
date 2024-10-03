@@ -29,8 +29,8 @@ protected:
 TEST_F(UserSuite, Costructor){
     ASSERT_EQ("Cbum", utente.getName());
     ASSERT_EQ(2, utente.getNumLists());
-    ASSERT_EQ(lista1.markItemsAsNotBought(), utente.getRemainedItems("Lunedì"));
-    ASSERT_EQ(lista2.markItemsAsNotBought(), utente.getRemainedItems("Martedì"));
+    ASSERT_EQ(lista1.notBoughtLenght(), utente.getRemainedItems("Lunedì"));
+    ASSERT_EQ(lista2.notBoughtLenght(), utente.getRemainedItems("Martedì"));
 }
 
 TEST_F(UserSuite, Setter){
@@ -40,8 +40,8 @@ TEST_F(UserSuite, Setter){
     utente.addItem("Lunedì", a);
     ASSERT_EQ("Cris", utente.getName());
     ASSERT_EQ(1, utente.getNumLists());
-    ASSERT_EQ(lista1.markItemsAsNotBought()+2, utente.getRemainedItems("Lunedì"));
+    ASSERT_EQ(lista1.notBoughtLenght()+1, utente.getRemainedItems("Lunedì"));
     utente.removeItem("Lunedì", a);
-    ASSERT_EQ(lista1.markItemsAsNotBought(), utente.getRemainedItems("Lunedì"));
+    ASSERT_EQ(lista1.notBoughtLenght(), utente.getRemainedItems("Lunedì"));
 }
 

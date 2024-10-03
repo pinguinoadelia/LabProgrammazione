@@ -42,7 +42,6 @@ public:
     int getQuantity() const {
         return quantity;
     }
-
     // Imposta una nuova quantità dell'articolo
     void setQuantity(int count) {
         if (count >= 0)
@@ -61,7 +60,7 @@ public:
         return isPurchased;
     }
 
-    const std::string to_string() const {
+    std::string to_string() const {
         return name + " (" + category + ") qnt. " + std::to_string(quantity) + " [" + ((isPurchased) ? "comprato" : "da comprare") + "]";
     }
 

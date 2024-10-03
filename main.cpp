@@ -34,7 +34,7 @@ void printItems(const ShoppingList& sl) {
     }
 
     // Supponiamo che esista un metodo per ottenere il numero totale di articoli non acquistati
-    std::cout << "Numero totale degli articoli non comprati:  " << sl.markItemsAsNotBought() << std::endl << std::endl;
+    std::cout << "Numero totale degli articoli non comprati:  " << sl.notBoughtLenght() << std::endl << std::endl;
 }
 
 int main() {
