@@ -136,7 +136,7 @@ void ShoppingList::printNotBoughtItems() const {
 
                     // Stampa il nome e la quantità dell'articolo non acquistato
                     strOut += "- " + item.first + " (" + std::to_string(item.second->getQuantity()) + ")" "\n";
-                    categoryNotBought += item.second->getQuantity();
+                    categoryNotBought++;
                 }
             }
         }
