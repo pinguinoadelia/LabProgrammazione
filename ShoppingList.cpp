@@ -166,9 +166,6 @@ std::map<std::string, std::shared_ptr<Item>> ShoppingList::notBoughtItems() cons
         // Nome della categoria corrente
         const std::string &category = itr.first;
 
-        // Numero di oggetti non acquistati nella categoria
-        int categoryNotBought = 0;
-
         // Verifica se ci sono articoli nella categoria corrente
         if (itr.second != 0) {
             // Itera attraverso gli articoli nella lista della spesa
@@ -180,13 +177,11 @@ std::map<std::string, std::shared_ptr<Item>> ShoppingList::notBoughtItems() cons
                                item.second->isPurchasedStatus());
                     auto ptr = std::make_shared<Item>(item2);
                     retItems.insert(std::make_pair(item2.getName(), ptr));
-                    categoryNotBought += item.second->getQuantity();
+                    total += item.second->getQuantity();
                 }
             }
         }
 
-        // Aggiorna il conteggio totale degli articoli non acquistati
-        total += categoryNotBought;
     }
 
     return retItems;
